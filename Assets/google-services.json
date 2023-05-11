@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "235769762415",
+    "firebase_url": "https://newton-s-platform-default-rtdb.firebaseio.com",
+    "project_id": "newton-s-platform",
+    "storage_bucket": "newton-s-platform.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235769762415:android:71d43eeb82a1258752b39a",
+        "android_client_info": {
+          "package_name": "com.KibiGame.NewtonsPlatform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235769762415-5l0fjrj0oualakn70tbs4tteivati8ae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNFPHhuoMqVRIEBjwWCMAyQtJeAJMZMjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235769762415-5l0fjrj0oualakn70tbs4tteivati8ae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235769762415:android:0aeb20a5ced4a90c52b39a",
+        "android_client_info": {
+          "package_name": "com.KibiGames.NewtonsPlatform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235769762415-5l0fjrj0oualakn70tbs4tteivati8ae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNFPHhuoMqVRIEBjwWCMAyQtJeAJMZMjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235769762415-5l0fjrj0oualakn70tbs4tteivati8ae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
