@@ -3,6 +3,8 @@ using Firebase.Database;
 using System;
 using Firebase.Auth;
 using TMPro;
+using System.Threading;
+using UnityEngine.SceneManagement;
 
 public class DataBase : MonoBehaviour
 {
@@ -34,11 +36,14 @@ public class DataBase : MonoBehaviour
         try
         {
             _authentication.SignInWithEmailAndPasswordAsync(_inputFieldEmail.text, _inputFieldPassword.text);
+            _authenticationStatus.text = "¬ход выполнен успешно";
         }
         catch
         {
             _authenticationStatus.text = "не удалось войти";
         }
+        SceneManager.LoadScene("MainMenu");
+
     }
 
     public void RegisterUser()
