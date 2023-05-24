@@ -6,32 +6,31 @@ public class Paint : MonoBehaviour
 {
     [SerializeField] private Texture2D _texture;
     [SerializeField] private Collider _collider;
-    [SerializeField] private int _textureSize = 128;
-    [SerializeField] private int _brushSize = 4;
+    [SerializeField] private int _textureSize = 512;
+    [SerializeField] private int _brushSize = 16;
     [SerializeField] private Color _color;
     [SerializeField] private float lastX;
     [SerializeField] private float lastY;
     [SerializeField] private Camera _camera;
-
-    private void Start()
-    {
-        _texture = new Texture2D(_textureSize, _textureSize);
-    }
+    [SerializeField] private Material _material;
 
     private void Update()
     {
-        Draw();
         if (Input.GetMouseButton(0))
-        {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (_collider.Raycast(ray, out hit, 100f))
-            {
-                lastX = (int)(hit.textureCoord.x * _textureSize);
-                lastY = (int)(hit.textureCoord.y * _textureSize);
-            }
-        }
+            Draw();
     }
+
+    private void OnValidate()
+    {
+        if (_texture == null)
+            _texture = new Texture2D(_textureSize, _textureSize);
+        if (_texture.width != _textureSize)
+            _texture.Reinitialize(_textureSize, _textureSize);
+
+        _material.mainTexture = _texture;
+        _texture.Apply();
+    }
+
     private void Draw()
     {
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
@@ -70,7 +69,13 @@ public class Paint : MonoBehaviour
 
     private void OnMouseDown()
     {
-
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (_collider.Raycast(ray, out hit, 100f))
+        {
+            lastX = (int)(hit.textureCoord.x * _textureSize);
+            lastY = (int)(hit.textureCoord.y * _textureSize);
+        }
     }
 
     private void DrawCircle(int rayX, int rayY)
