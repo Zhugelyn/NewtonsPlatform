@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class ButtonController : MonoBehaviour
+public class ButtonControllerAuth : MonoBehaviour
 {
     [SerializeField]
     private TMP_InputField _inputField;
