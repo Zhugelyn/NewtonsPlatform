@@ -14,10 +14,23 @@ public class Paint : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private Material _material;
 
+    private void OnMouseDown()
+    {
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (_collider.Raycast(ray, out hit, 100f))
+        {
+            lastX = (int)(hit.textureCoord.x * _textureSize);
+            lastY = (int)(hit.textureCoord.y * _textureSize);
+        }
+    }
+
     private void Update()
     {
         if (Input.GetMouseButton(0))
+        {
             Draw();
+        }
     }
 
     private void OnValidate()
@@ -64,17 +77,6 @@ public class Paint : MonoBehaviour
             DrawCircle((int)Cx, (int)Cy);
             MiddleDrow((int)X1, (int)Y1, (int)Cx, (int)Cy);
             MiddleDrow((int)Cx, (int)Cy, (int)X2, (int)Y2);
-        }
-    }
-
-    private void OnMouseDown()
-    {
-        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (_collider.Raycast(ray, out hit, 100f))
-        {
-            lastX = (int)(hit.textureCoord.x * _textureSize);
-            lastY = (int)(hit.textureCoord.y * _textureSize);
         }
     }
 
