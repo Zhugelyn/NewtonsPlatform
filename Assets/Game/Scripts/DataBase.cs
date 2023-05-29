@@ -3,8 +3,7 @@ using Firebase.Database;
 using System;
 using Firebase.Auth;
 using TMPro;
-using System.Threading;
-using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class DataBase : MonoBehaviour
 {
@@ -24,6 +23,15 @@ public class DataBase : MonoBehaviour
         _authentication = FirebaseAuth.DefaultInstance;
     }
 
+    public void Update()
+    {
+        if (_authenticationStatus.text == "Вход выполнен успешно")
+        {
+            var scenLoader = new SceneLoader();
+            scenLoader.LoadMainMenuScene();
+        }
+    }
+
     public void SaveData(string email)
     {
         var user = new User("default", email);
@@ -31,32 +39,45 @@ public class DataBase : MonoBehaviour
         _databaseReference.Child("User").SetValueAsync(jsonObject);
     }
 
-    public void Login()
+    public void SetloginStatus()
     {
-        try
-        {
-            _authentication.SignInWithEmailAndPasswordAsync(_inputFieldEmail.text, _inputFieldPassword.text);
-            _authenticationStatus.text = "Вход выполнен успешно";
-        }
-        catch
-        {
-            _authenticationStatus.text = "не удалось войти";
-        }
-        SceneManager.LoadScene("MainMenu");
-
+         _authentication.SignInWithEmailAndPasswordAsync(_inputFieldEmail.text, _inputFieldPassword.text)
+            .ContinueWith(task =>
+            {
+                if (task.IsCanceled)
+                {
+                    _authenticationStatus.text = "SignInWithEmailAndPasswordAsync was canceled.";
+                }
+                if (task.IsFaulted)
+                {
+                    _authenticationStatus.text = "не верно введен пароль";
+                }
+                if (task.IsCompleted)
+                {
+                    _authenticationStatus.text = "Вход выполнен успешно";
+                }
+            });
+        _authenticationStatus.text = _authenticationStatus.text; 
     }
 
     public void RegisterUser()
     {
-        try
-        {
-            _authentication.CreateUserWithEmailAndPasswordAsync(_inputFieldEmail.text, _inputFieldPassword.text);
-            _authenticationStatus.text = "Регистрация прошла успешно"; 
-        }
-        catch
-        {
-            _authenticationStatus.text = "Не удалось зарегистрироваться";
-        }
+        _authentication.CreateUserWithEmailAndPasswordAsync(_inputFieldEmail.text, _inputFieldPassword.text)
+            .ContinueWith(task =>
+            {
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
+                    return;
+                }
+
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                    return;
+                }
+
+            });
     }
 }
 

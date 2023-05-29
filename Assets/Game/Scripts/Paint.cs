@@ -14,19 +14,18 @@ public class Paint : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private Material _material;
 
-    private void OnMouseDown()
-    {
-        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (_collider.Raycast(ray, out hit, 100f))
-        {
-            lastX = (int)(hit.textureCoord.x * _textureSize);
-            lastY = (int)(hit.textureCoord.y * _textureSize);
-        }
-    }
-
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (_collider.Raycast(ray, out hit, 100f))
+            {
+                lastX = (int)(hit.textureCoord.x * _textureSize);
+                lastY = (int)(hit.textureCoord.y * _textureSize);
+            }
+        }
         if (Input.GetMouseButton(0))
         {
             Draw();

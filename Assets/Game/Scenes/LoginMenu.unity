@@ -1117,7 +1117,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1017973272}
         m_TargetAssemblyTypeName: DataBase, Assembly-CSharp
-        m_MethodName: Login
+        m_MethodName: SetloginStatus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
