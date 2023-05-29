@@ -3,7 +3,6 @@ using Firebase.Database;
 using System;
 using Firebase.Auth;
 using TMPro;
-using System.Threading.Tasks;
 
 public class DataBase : MonoBehaviour
 {
@@ -15,7 +14,7 @@ public class DataBase : MonoBehaviour
     [SerializeField]
     private TMP_InputField _inputFieldPassword;
     [SerializeField]
-    private TMP_Text _authenticationStatus;
+    public TMP_Text _authenticationStatus;
 
     private void Start()
     {
@@ -39,7 +38,7 @@ public class DataBase : MonoBehaviour
         _databaseReference.Child("User").SetValueAsync(jsonObject);
     }
 
-    public void SetloginStatus()
+    public void Login()
     {
          _authentication.SignInWithEmailAndPasswordAsync(_inputFieldEmail.text, _inputFieldPassword.text)
             .ContinueWith(task =>
@@ -47,17 +46,18 @@ public class DataBase : MonoBehaviour
                 if (task.IsCanceled)
                 {
                     _authenticationStatus.text = "SignInWithEmailAndPasswordAsync was canceled.";
+                    return;
                 }
                 if (task.IsFaulted)
                 {
-                    _authenticationStatus.text = "не верно введен пароль";
+                    _authenticationStatus.text = "Неверно введен пароль";
+                    return;
                 }
                 if (task.IsCompleted)
                 {
                     _authenticationStatus.text = "Вход выполнен успешно";
                 }
             });
-        _authenticationStatus.text = _authenticationStatus.text; 
     }
 
     public void RegisterUser()
