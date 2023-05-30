@@ -25,12 +25,14 @@ public class DragItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        _rigidbody.isKinematic = true;
+        if (_rigidbody != null)
+            _rigidbody.isKinematic = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        _rigidbody.isKinematic = false;
+        if (_rigidbody != null)
+            _rigidbody.isKinematic = false;
     }
 
     public void UpdatePosition()

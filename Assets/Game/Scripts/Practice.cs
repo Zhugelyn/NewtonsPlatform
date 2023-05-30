@@ -21,11 +21,7 @@ public class Practice : MonoBehaviour
     void Start()
     {
         _resourceTask = new List<Task>();
-        _resourceTask.Add(new Task("123", "123"));
-        _resourceTask.Add(new Task("1234", "1234"));
-        _resourceTask.Add(new Task("12345", "12345"));
-        _resourceTask.Add(new Task(@"Тело движется прямолинейно под действием силы 16 Н.
-                            Зависимость пути от времени имеет вид S=10−5t+2t2, м. Найти массу тела.", "10"));
+        _resourceTask.Add(new Task("Тело движется прямолинейно под действием силы 16 Н. Зависимость пути от времени имеет вид S=10−5t+2t2, м. Найти массу тела.", "10"));
 
         _textTask.text = _resourceTask[_numberPractice].TextTask;
         _correctAnswer = _resourceTask[_numberPractice].AnswerTask;

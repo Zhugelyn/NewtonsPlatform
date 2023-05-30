@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ButtonController : MonoBehaviour
@@ -9,6 +10,9 @@ public class ButtonController : MonoBehaviour
     [SerializeField] private GameObject _menu;
     [SerializeField] private GameObject _videoBoard;
     [SerializeField] private GameObject _formula;
+    [SerializeField] private TMP_Text _statusCreationCourse;
+    [SerializeField] private GameObject _materialLab;
+    [SerializeField] private GameObject _Line;
     public void ImageObj()
     {
         if (_object.gameObject.active)
@@ -61,4 +65,26 @@ public class ButtonController : MonoBehaviour
         else
             _formula.SetActive(true);
     }
+
+    public void ShowStatusCreationCourse()
+    {
+        _statusCreationCourse.text = "Курс успешно создан";
+    }
+
+    public void ShowPanelMaterialLab()
+    {
+        if (_materialLab.gameObject.active)
+            _materialLab.SetActive(false);
+        else
+            _materialLab.SetActive(true);
+    }
+
+    public void ShowLine()
+    {
+        if (_Line.gameObject.active)
+            _Line.SetActive(false);
+        else
+            _Line.SetActive(true);
+    }
+
 }
