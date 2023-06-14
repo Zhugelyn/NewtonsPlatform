@@ -3,6 +3,8 @@ using Firebase.Database;
 using System;
 using Firebase.Auth;
 using TMPro;
+using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 
 public class DataBase : MonoBehaviour
 {
@@ -78,6 +80,12 @@ public class DataBase : MonoBehaviour
                 }
 
             });
+    }
+
+    public void SaveItem(string name, List<KeyValuePair<string, string>> list)
+    {
+        string json = JsonUtility.ToJson(list);
+        _databaseReference.Child(name).SetRawJsonValueAsync(json);
     }
 }
 

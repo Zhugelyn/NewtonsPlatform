@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Line : MonoBehaviour
 {

@@ -44,6 +44,7 @@ public class Practice : MonoBehaviour
     public void CheckAnswer()
     {
         if (_inputFieldAnswer != null)
+        {
             if (_inputFieldAnswer.text == _resourceTask[_numberPractice].AnswerTask)
             {
                 _statusAnswer.text = "Ответ верный";
@@ -52,6 +53,7 @@ public class Practice : MonoBehaviour
             }
             else
                 _statusAnswer.text = "Неверный ответ";
+        }
     }
 }
 
