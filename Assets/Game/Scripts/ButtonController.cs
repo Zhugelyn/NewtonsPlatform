@@ -13,6 +13,8 @@ public class ButtonController : MonoBehaviour
     [SerializeField] private TMP_Text _statusCreationCourse;
     [SerializeField] private GameObject _materialLab;
     [SerializeField] private GameObject _Line;
+    [SerializeField] private GameObject _createTask;
+    [SerializeField] private GameObject _downloadResource;
     public void ImageObj()
     {
         if (_object.gameObject.active)
@@ -87,4 +89,19 @@ public class ButtonController : MonoBehaviour
             _Line.SetActive(true);
     }
 
+    public void ShowCreateTask()
+    {
+        if (_createTask.gameObject.active)
+            _createTask.SetActive(false);
+        else
+            _createTask.SetActive(true);
+    }
+
+    public void ShowDownLoadResource()
+    {
+        if (_downloadResource.gameObject.active)
+            _downloadResource.SetActive(false);
+        else
+            _downloadResource.SetActive(true);
+    }
 }

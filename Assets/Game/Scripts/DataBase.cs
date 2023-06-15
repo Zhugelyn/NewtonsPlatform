@@ -82,9 +82,9 @@ public class DataBase : MonoBehaviour
             });
     }
 
-    public void SaveItem(string name, List<KeyValuePair<string, string>> list)
+    public void SaveItem(KeyValuePair<string, List<KeyValuePair<string, string>>> item)
     {
-        string json = JsonUtility.ToJson(list);
+        string json = JsonUtility.ToJson(item);
         _databaseReference.Child(name).SetRawJsonValueAsync(json);
     }
 }

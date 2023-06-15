@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Answer">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\Answer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonController">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAADAAAACCAAAAAgAAAAAAIIEAAMAAAAQAAAACOQIAA=</HashCode>
+      <FileName>Assets\Game\Scripts\ButtonController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonControllerAuth">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAKAAAAAAAAAAAAAAAAAAAAQQAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\ButtonControllerAuth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAACWAAAAgAAAAAAAAAAAAAAAAgIoAAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataBase">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQRAAAAAACAAAAAAAAAAAAAQAACAAAAAQAAQAQAAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\DataBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DragItem" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAIACAAAABAAAAAAAAAAAAAAAAAgCCAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\DragItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Line">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAEAAAAEAAAAAAJAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\Line.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Paint">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAAAAAQAIAsAAiAEACAAAAAAAABAACAAAACAAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\Paint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Practice">
+    <Position X="9.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAABAACAAAAAAACACAEAAAAgBAEAAAAACAAAQAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\Practice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneLoader">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAACAEBAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\SceneLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleObject">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\SimpleObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task">
+    <Position X="5.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAIACAAAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Timer">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAUAAAEAAAAAAAAAAIAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\Timer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eccentric.CameraMove">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEEAIAAAAAYAAAAAAAAEAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Game\Scripts\CameraMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

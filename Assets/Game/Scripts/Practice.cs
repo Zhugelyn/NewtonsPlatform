@@ -21,7 +21,7 @@ public class Practice : MonoBehaviour
     void Start()
     {
         _resourceTask = new List<Task>();
-        _resourceTask.Add(new Task("Тело движется прямолинейно под действием силы 16 Н. Зависимость пути от времени имеет вид S=10−5t+2t2, м. Найти массу тела.", "10"));
+        _resourceTask.Add(new Task("123", "Тело движется прямолинейно под действием силы 16 Н. Зависимость пути от времени имеет вид S=10−5t+2t2, м. Найти массу тела.", "10"));
 
         _textTask.text = _resourceTask[_numberPractice].TextTask;
         _correctAnswer = _resourceTask[_numberPractice].AnswerTask;
@@ -54,17 +54,5 @@ public class Practice : MonoBehaviour
             else
                 _statusAnswer.text = "Неверный ответ";
         }
-    }
-}
-
-public class Task
-{
-    public string TextTask { get; set; }
-    public string AnswerTask { get; set; }
-
-    public Task(string textTask, string answerTask)
-    {
-        this.TextTask = textTask;
-        this.AnswerTask = answerTask;
     }
 }

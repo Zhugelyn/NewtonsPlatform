@@ -51,7 +51,7 @@ public class Paint : MonoBehaviour
         {
             int rayX = (int)(hit.textureCoord.x * _textureSize);
             int rayY = (int)(hit.textureCoord.y * _textureSize);
-            MiddleDrow(lastX, lastY, rayX, rayY);
+            MiddleDraw(lastX, lastY, rayX, rayY);
             lastX = rayX;
             lastY = rayY;
             //DrowQuad(rayX, rayY);
@@ -61,7 +61,7 @@ public class Paint : MonoBehaviour
         }
     }
 
-    private void MiddleDrow(float X1, float Y1, float X2, float Y2)
+    private void MiddleDraw(float X1, float Y1, float X2, float Y2)
     {
         float Asq = Mathf.Pow(X1 - X2, 2f);
         float Bsq = Mathf.Pow(Y1 - Y2, 2f);
@@ -74,8 +74,8 @@ public class Paint : MonoBehaviour
             float Cy = (Y1 + Y2) / 2;
 
             DrawCircle((int)Cx, (int)Cy);
-            MiddleDrow((int)X1, (int)Y1, (int)Cx, (int)Cy);
-            MiddleDrow((int)Cx, (int)Cy, (int)X2, (int)Y2);
+            MiddleDraw((int)X1, (int)Y1, (int)Cx, (int)Cy);
+            MiddleDraw((int)Cx, (int)Cy, (int)X2, (int)Y2);
         }
     }
 
