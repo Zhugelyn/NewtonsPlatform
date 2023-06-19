@@ -3,11 +3,8 @@ using Firebase.Database;
 using System;
 using Firebase.Auth;
 using TMPro;
-using System.Runtime.CompilerServices;
 using System.Collections.Generic;
-using UnityEngine.Video;
-using Firebase.Extensions;
-using Newtonsoft.Json;
+
 
 public class DataBase : MonoBehaviour
 {
@@ -103,12 +100,85 @@ public class DataBase : MonoBehaviour
     {
         var list = new List<UserCourses>();
         _databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
-        var userCourses = _databaseReference.Child("UserCourses").Child(GetCurrentUserEmail()).GetValueAsync();
+        var userCourses = _databaseReference.Child("UserCourses")
+            .EqualTo(GetCurrentUserEmail())
+            .GetValueAsync();
         DataSnapshot snapshot = userCourses.Result;
         var json = snapshot.GetRawJsonValue();
-        JsonUtility.FromJsonOverwrite(json, list);
+        var items = JsonHelper.FromJson<UserCourses>(json);
+
+        foreach (var item in items)
+            list.Add(item);
+
 
         return list;
+    }
+
+    public List<Course> GetCourses(string courseGuid)
+    {
+        var listUserCourses = new List<Course>();
+        _databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
+        var courses = _databaseReference.Child("Courses")
+            .EqualTo(courseGuid)
+            .GetValueAsync();
+        DataSnapshot snapshot = courses.Result;
+        var json = snapshot.GetRawJsonValue();
+        var items = JsonHelper.FromJson<Course>(json);
+        foreach (var item in items)
+            listUserCourses.Add(item);
+
+        return listUserCourses;
+    }
+
+    public List<Theme> GetThemesByCourseGuid(string courseGuid)
+    {
+        var listTheme = new List<Theme>();
+        _databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
+        var courses = _databaseReference.Child("Courses")
+            .Child(GetCurrentUserEmail())
+            .OrderByChild("guid")
+            .StartAt("courseId")
+            .EqualTo(courseGuid)
+            .GetValueAsync();
+        DataSnapshot snapshot = courses.Result;
+        var json = snapshot.GetRawJsonValue();
+        var items = JsonHelper.FromJson<Theme>(json);
+        foreach (var item in items)
+            listTheme.Add(item);
+
+        return listTheme;
+    }
+
+    public List<Chapter> GetChapterByThemeGuid(string themeGuid)
+    {
+        var listTheme = new List<Chapter>();
+        _databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
+        var courses = _databaseReference.Child("Courses")
+            .EqualTo(themeGuid)
+            .GetValueAsync();
+        DataSnapshot snapshot = courses.Result;
+        var json = snapshot.GetRawJsonValue();
+        var items = JsonHelper.FromJson<Chapter>(json);
+        foreach (var item in items)
+            listTheme.Add(item);
+
+        return listTheme;
+    }
+
+    public List<Task> GetTaskByChapterGuid(string chapterGuid)
+    {
+        var listTheme = new List<Task>();
+        _databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
+        var courses = _databaseReference.Child("Courses")
+            .EqualTo(chapterGuid)
+            .GetValueAsync();
+        DataSnapshot snapshot = courses.Result;
+        var json = snapshot.GetRawJsonValue();
+        var items = JsonHelper.FromJson<Task>(json);
+        foreach (var item in items)
+            listTheme.Add(item);
+
+        return listTheme;
     }
 
     public string GetCurrentUserEmail()

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -15,7 +16,10 @@ public class CourseManager : MonoBehaviour
     [SerializeField] private TMP_InputField _joinCourse;
     [SerializeField] private TMP_Text _statusJoinCourse;
     [SerializeField] private TMP_Text _countTask;
+    [SerializeField] private TMP_Text _courseNameText;
+    [SerializeField] private GameObject _prefab;
 
+    public static string CourseId;
     private int _numberTask = 0;
     private DataBase _db = new DataBase();
     private Course _course;
@@ -23,6 +27,16 @@ public class CourseManager : MonoBehaviour
     private Chapter _chapter;
     private List<StructTask> tasksStructList = new List<StructTask>();
     private string _stateCourse = "true";
+    private List<Course> listCourse;
+
+    private void Start()
+    {
+        listCourse = _db.GetCourses(_db.GetUserCourses().First().CourseId);
+        CourseId = listCourse.First().Guid;
+        if (_prefab != null)
+            AddItem(listCourse);
+        _courseNameText.text = listCourse.First().name;
+    }
 
     public void CreateCourse()
     {
@@ -113,6 +127,22 @@ public class CourseManager : MonoBehaviour
         {
             _statusJoinCourse.text = ex.Message;
         }
+    }
+
+    public void AddItem(List<Course> listCourses)
+    {
+        foreach (var course in listCourses)
+        {
+            var item = Instantiate(_prefab);
+            item.SetActive(true);
+            var text = item.GetComponent<TMP_Text>();
+            text.text = course.Name;
+        }
+    }
+
+    public string GetCourseGuid()
+    {
+        return CourseId;
     }
 
     public string GetGuide() => Guid.NewGuid().ToString();

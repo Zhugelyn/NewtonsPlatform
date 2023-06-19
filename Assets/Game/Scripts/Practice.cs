@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Practice : MonoBehaviour
@@ -14,21 +10,20 @@ public class Practice : MonoBehaviour
     [SerializeField] TMP_Text _statusAnswer;
     [SerializeField] GameObject _uiEndPractice;
 
-    private static string _courseGuid = string.Empty;
-    private Task _task;
+    DataBase _db;
     private List<Task> _listTasks;
     private int _numberPractice = 0;
-    private string _correctAnswer = string.Empty;
-    private List<UserCourses> _userCoursesList;
+    private string _correctAnswer;
 
     void Start()
     {
-        _listTasks = new List<Task>();
-        _listTasks.Add(new Task(string.Empty, "Моторная лодка проходит по реке расстояние между двумя пунктами (в обе стороны) за 14 часов. чему равно это расстояние, если скорость лодки в стоячей воде 35 км/ ч, а скорость течения реки – 5 км/ч?", "240", string.Empty));
-        _listTasks.Add(new Task(string.Empty, "Масса пустой пол-литровой бутылки равна 400 г. каков ее наружный объем?", "0,66", string.Empty));
-
-        _textTask.text = _listTasks[_numberPractice].TextTask;
-        _correctAnswer = _listTasks[_numberPractice].AnswerTask;
+        _db = GetComponent<DataBase>();
+        var courseGuid = GetComponent<CourseManager>().GetCourseGuid();
+        var themeGuid = _db.GetThemesByCourseGuid(courseGuid).First().Guid;
+        var chapterGuid = _db.GetChapterByThemeGuid(themeGuid).First().Guid;
+        _listTasks = _db.GetTaskByChapterGuid(chapterGuid);
+        _textTask.text = _listTasks.First().TextTask;
+        _correctAnswer = _listTasks.First().AnswerTask;
     }
 
     public void UpdateTask()
