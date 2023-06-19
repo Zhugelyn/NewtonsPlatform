@@ -13,7 +13,7 @@ public class UploadFile : MonoBehaviour
     void Start()
     {
 
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png"), new FileBrowser.Filter("Text Files", ".txt", ".pdf"));
+        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png", ".mp4"), new FileBrowser.Filter("Text Files", ".txt", ".pdf"));
 
         FileBrowser.SetDefaultFilter(".jpg");
 
@@ -48,7 +48,6 @@ public class UploadFile : MonoBehaviour
      
             var newMetadata = new MetadataChange();
             newMetadata.ContentType = "image/jpeg/png";
-
          
             StorageReference uploadRef = storageReference.Child("uploads");
             Debug.Log("File upload started");

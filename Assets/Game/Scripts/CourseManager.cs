@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
-using TMPro.EditorUtilities;
 using UnityEngine;
-using static Unity.VisualScripting.Member;
 
 public class CourseManager : MonoBehaviour
 {
@@ -64,6 +61,8 @@ public class CourseManager : MonoBehaviour
     {
         tasksStructList.Add(new StructTask(GetGuide(), _taskText.text, _taskAnswer.text));
         _creatTaskWindow.SetActive(false);
+        _taskText.text = string.Empty;
+        _taskAnswer.text = string.Empty;
         _numberTask++;
         _countTask.text = _numberTask.ToString();
     }
