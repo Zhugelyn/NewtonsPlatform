@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SimpleObject : MonoBehaviour
 {
-    private string GlobalId { get; set; }
-    public string Name { get; set; }
+    public string Guid;
+    public string Name;
 
-    public SimpleObject(string GlobalId, string name)
+    public SimpleObject(string guid, string name)
     {
-        this.GlobalId = GlobalId;
+        this.Guid = guid;
         this.Name = name;
     }
 }

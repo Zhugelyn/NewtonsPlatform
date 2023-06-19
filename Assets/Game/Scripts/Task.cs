@@ -1,17 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Task : MonoBehaviour
 {
-    private string GlobalId { get; set; }
-    public string TextTask { get; set; }
-    public string AnswerTask { get; set; }
+    public string Guid;
+    public string TextTask;
+    public string AnswerTask;
+    public string ChapterId;
 
-    public Task(string GlobalId, string textTask, string answerTask)
+    public Task(string GlobalId, string textTask, string answerTask, string chapterId)
     {
-        this.GlobalId = GlobalId;
-        this.TextTask = textTask;
-        this.AnswerTask = answerTask;
+        Guid = GlobalId;
+        TextTask = textTask;
+        AnswerTask = answerTask;
+        ChapterId = chapterId;
     }
 }

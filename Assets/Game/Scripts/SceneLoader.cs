@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public static string CourseGuid;
     public void LoadMainMenuScene()
     {
         SceneManager.LoadScene(1);
@@ -26,5 +27,15 @@ public class SceneLoader : MonoBehaviour
     public void LoadCourseStudyScene()
     {
         SceneManager.LoadScene(5);
+    }
+
+    public void LoadCourseSelection()
+    {
+        SceneManager.LoadScene(6);
+    }
+
+    public void LoadCourseMenu()
+    {
+        SceneManager.LoadScene(7);
     }
 }

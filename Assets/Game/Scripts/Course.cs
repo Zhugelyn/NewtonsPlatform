@@ -6,42 +6,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class Course : MonoBehaviour
+[Serializable]
+public class Course : SimpleObject
 {
-    [SerializeField] private TMP_InputField _courseName;
-    [SerializeField] private TMP_InputField _themeName;
-    [SerializeField] private TMP_InputField _chapterName;
-    [SerializeField] private TMP_InputField _taskText;
-    [SerializeField] private TMP_InputField _taskAnswer;
-    private bool _stateCourse = true;
+    public string MentorId;
+    public string Private;
 
-    private List<Task> tasks = new List<Task>();
-    public void createCourse()
+    public Course(string guid, string name, string mentorId, string stateCourse) : base(guid, name)
     {
-        var status = string.Empty;
-        if (tasks.Any())
-            status = "добавьте хот€бы одну заадчу";
-
-        var theme = CreateSimpleObject(_themeName.text);
-        var chapter = CreateSimpleObject(_chapterName.text);
+        MentorId = mentorId;
+        Private = stateCourse;
     }
-
-    public void ChageStateCourse()
-    {
-        _stateCourse = true? false: true;
-    }
-
-    public void AddTask()
-    {
-        tasks.Add(new Task(GetGuide(), _taskText.text, _taskAnswer.text));
-    }
-
-    public SimpleObject CreateSimpleObject(string name) => new SimpleObject(GetGuide(), name);
- 
-
-    public string GetGuide() => Guid.NewGuid().ToString();
-
-
 }
 
 

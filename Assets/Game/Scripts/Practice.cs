@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
@@ -13,16 +14,17 @@ public class Practice : MonoBehaviour
     [SerializeField] TMP_Text _statusAnswer;
     [SerializeField] GameObject _uiEndPractice;
 
+    private static string _courseGuid = string.Empty;
+    private DataBase _db = new DataBase();
     private Task _task;
     private List<Task> _resourceTask;
     private int _numberPractice = 0;
     private string _correctAnswer = string.Empty;
+    private List<UserCourses> _userCoursesList;
 
     void Start()
     {
-        _resourceTask = new List<Task>();
-        _resourceTask.Add(new Task("123", "Тело движется прямолинейно под действием силы 16 Н. Зависимость пути от времени имеет вид S=10−5t+2t2, м. Найти массу тела.", "10"));
-
+        _userCoursesList = _db.GetUserCourses();
         _textTask.text = _resourceTask[_numberPractice].TextTask;
         _correctAnswer = _resourceTask[_numberPractice].AnswerTask;
     }

@@ -19,8 +19,14 @@ EditorBuildSettings:
     guid: 0003d1c907ffc334fb9789eefc1cbed3
   - enabled: 1
     path: Assets/Game/Scenes/JoinCourse.unity
-    guid: ec4796c4d6e582048bd13a58ba16fa65
+    guid: 75a296d88c2e96b4eb66273a5895a3ae
   - enabled: 1
     path: Assets/Game/Scenes/CourseScene.unity
     guid: 71df78a2ff42bd64ba17d2dfecabb3a0
+  - enabled: 1
+    path: Assets/Game/Scenes/CourseSelection.unity
+    guid: ec4796c4d6e582048bd13a58ba16fa65
+  - enabled: 1
+    path: Assets/Game/Scenes/CourseMenu.unity
+    guid: 3dbea6048b2a4a047a4d699f4e11a7b3
   m_configObjects: {}
